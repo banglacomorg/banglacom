@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BanglaCOM — Bangladesh–China trade, Kunming</title>
+<meta name="description" content="BanglaCOM (Bangla Commercial Operations Management (Yunnan) Co., Ltd.) is a Sino-Bangladeshi joint venture in Kunming connecting Bangladeshi producers with Chinese buyers.">
+
+<!-- ============================================================
+     EDIT GUIDE (for you, not visitors)
+
+     LANGUAGE
+     Every translatable element carries a data-zh attribute holding
+     its Chinese text. To change the Chinese, edit that attribute.
+     To change the English, edit the visible text as normal.
+     Do not use double quote marks inside a data-zh attribute.
+
+     COLOURS  -> the :root block below
+     CONTACT  -> the #contact section near the bottom
+     Marked with an EDIT note where you will most likely want changes.
+
+     Upload this single file as index.html. No build tools needed.
+     ============================================================ -->
+
+<!-- Fonts are loaded from the visitor's own device, not from Google.
+     Google Fonts is blocked in mainland China, so an external font
+     link would stall the page for Chinese visitors. -->
+
+<style>
+:root{
+  /* Bengal indigo + jute fibre + river teal. */
+  --ink:        #10202E;
+  --indigo:     #1B3A5C;
+  --river:      #0E4F4A;
+  --jute:       #B98A2E;
+  --jute-soft:  #E5D3A8;
+  --paper:      #F6F2E9;
+  --paper-warm: #EFE8DA;
+  --line:       #D6CDBB;
+  --white:      #FCFAF5;
+  /* Device fonts. Serif reads as Georgia/Songti; sans as Helvetica/PingFang.
+     Chinese faces (PingFang, Microsoft YaHei, Songti) ship on Chinese
+     devices; Bengali (Nirmala, Kohinoor) ships on Windows/Apple. */
+  --serif: Georgia, "Songti SC", "STSong", "Times New Roman", serif;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+           "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --sans-zh: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+             "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+  --serif-zh: "Songti SC", "STSong", "SimSun", "Source Han Serif SC", serif;
+  --bengali: "Nirmala UI", "Kohinoor Bangla", "Bangla MN", "Noto Serif Bengali", serif;
+
+  --maxw: 1120px;
+  --gutter: clamp(20px, 5vw, 64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px; line-height:1.62; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.14; letter-spacing:-0.015em; margin:0; }
+p{margin:0 0 1em}
+a{color:inherit}
+
+/* Chinese mode swaps in Chinese-native faces so the page doesn't
+   render Han characters in a Latin fallback. */
+body.zh-mode{ font-family:var(--sans-zh); line-height:1.75; }
+body.zh-mode h1, body.zh-mode h2, body.zh-mode h3{
+  font-family:var(--serif-zh); letter-spacing:0; line-height:1.3;
+}
+body.zh-mode .eyebrow{ letter-spacing:.10em; }
+.bn{ font-family:var(--bengali); font-weight:400; }
+.zh{ font-family:var(--sans-zh); font-weight:300; }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
+.eyebrow{ font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--jute); margin:0 0 14px; }
+
+/* ---- signature: handloom warp threads ---- */
+.warp{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:repeating-linear-gradient(to right,
+    rgba(255,255,255,.10) 0px, rgba(255,255,255,.10) 1px,
+    transparent 1px, transparent 28px);
+  mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  -webkit-mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+}
+
+/* ---- top bar ---- */
+.topbar{ position:sticky; top:0; z-index:50; background:rgba(16,32,46,.94); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.10); }
+.topbar-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:13px; }
+.brandmark{ display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--white); flex-shrink:0; }
+.brandmark b{ font-family:var(--serif); font-weight:500; font-size:20px; letter-spacing:-.01em; }
+.brandmark span{ font-size:13px; color:var(--jute-soft); }
+.topbar-right{ display:flex; align-items:center; gap:22px; }
+.nav{ display:flex; gap:24px; }
+.nav a{ color:rgba(255,255,255,.78); text-decoration:none; font-size:14px; padding-block:4px; border-bottom:1px solid transparent; white-space:nowrap; }
+.nav a:hover, .nav a:focus-visible{ color:var(--white); border-bottom-color:var(--jute); }
+@media (max-width:900px){ .nav{display:none} }
+
+/* ---- language toggle ---- */
+.langtoggle{ display:flex; border:1px solid rgba(255,255,255,.28); border-radius:2px; overflow:hidden; flex-shrink:0; }
+.langtoggle button{
+  font-family:inherit; font-size:12.5px; letter-spacing:.06em;
+  background:transparent; color:rgba(255,255,255,.68);
+  border:0; padding:6px 12px; cursor:pointer; line-height:1.4;
+}
+.langtoggle button + button{ border-left:1px solid rgba(255,255,255,.28); }
+.langtoggle button:hover{ color:var(--white); }
+.langtoggle button[aria-pressed="true"]{ background:var(--jute); color:#17130A; font-weight:600; }
+
+/* ---- hero ---- */
+.hero{ position:relative; overflow:hidden; background:linear-gradient(168deg,#10202E 0%,#14324A 52%,#0E4F4A 100%); color:var(--white); padding-block:clamp(72px,12vw,132px) clamp(64px,10vw,104px); }
+.hero-grid{ position:relative; display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(32px,6vw,72px); align-items:end; }
+@media (max-width:880px){ .hero-grid{ grid-template-columns:1fr; align-items:start; } }
+.hero h1{ font-size:clamp(38px,5.6vw,64px); color:var(--white); margin:0 0 24px; max-width:15ch; }
+.hero h1 em{ font-style:italic; color:var(--jute-soft); }
+body.zh-mode .hero h1 em{ font-style:normal; }
+.scripts{ display:flex; flex-wrap:wrap; align-items:baseline; gap:14px 20px; padding-bottom:20px; margin-bottom:26px; border-bottom:1px solid rgba(255,255,255,.18); }
+.scripts span{ font-size:clamp(19px,2.6vw,27px); color:rgba(255,255,255,.85); }
+.scripts .sep{ color:var(--jute); font-size:15px; }
+.hero-lede{ font-size:clamp(17px,1.9vw,20px); color:rgba(255,255,255,.84); max-width:52ch; font-weight:300; }
+.hero-facts{ border-left:1px solid rgba(255,255,255,.20); padding-left:24px; }
+.fact{ margin-bottom:22px; }
+.fact:last-child{margin-bottom:0}
+.fact dt{ font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--jute); margin-bottom:5px; }
+.fact dd{ margin:0; font-size:15px; color:rgba(255,255,255,.88); line-height:1.45; }
+
+/* ---- sections ---- */
+.section{ padding-block:clamp(64px,9vw,104px); }
+.section-alt{ background:var(--paper-warm); }
+.section-dark{ background:var(--ink); color:var(--white); position:relative; overflow:hidden; }
+.section-head{ max-width:64ch; margin-bottom:clamp(34px,5vw,52px); }
+.section-head h2{ font-size:clamp(29px,4vw,44px); color:var(--indigo); margin-bottom:16px; }
+.section-dark .section-head h2{ color:var(--white); }
+.section-head p{ font-size:17.5px; color:#4A5A66; }
+.section-dark .section-head p{ color:rgba(255,255,255,.75); }
+
+/* ---- services ---- */
+.services{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+.svc{ background:var(--paper); padding:30px 26px 32px; }
+.svc h3{ font-size:21px; color:var(--indigo); margin-bottom:10px; }
+.svc .zh-sub{ font-size:13px; color:var(--jute); margin-bottom:12px; display:block; }
+body.zh-mode .svc .zh-sub{ display:none; }
+.svc p{ font-size:15.5px; color:#4A5A66; margin:0; }
+
+/* ---- split ---- */
+.split{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+@media (max-width:800px){ .split{ grid-template-columns:1fr; } }
+.split-col{ background:var(--white); padding:clamp(28px,4vw,42px); }
+.split-col h3{ font-size:25px; color:var(--river); margin-bottom:6px; }
+.split-col .zh-sub{ display:block; font-size:13.5px; color:var(--jute); margin-bottom:20px; }
+body.zh-mode .split-col .zh-sub{ display:none; }
+.steps{ list-style:none; margin:0; padding:0; counter-reset:s; }
+.steps li{ counter-increment:s; position:relative; padding-left:40px; margin-bottom:18px; font-size:15.5px; color:#3D4C58; }
+.steps li::before{
+  content:counter(s,decimal-leading-zero); position:absolute; left:0; top:1px;
+  font-family:var(--serif); font-size:14px; color:var(--jute);
+  border:1px solid var(--jute-soft); border-radius:50%;
+  width:26px; height:26px; display:grid; place-items:center;
+}
+
+/* ---- stats ---- */
+.stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:34px; position:relative; }
+.stat dt{ font-family:var(--serif); font-size:clamp(34px,4.6vw,50px); color:var(--jute-soft); line-height:1.05; margin-bottom:8px; }
+body.zh-mode .stat dt{ font-family:var(--serif-zh); font-size:clamp(30px,4vw,42px); }
+.stat dd{ margin:0; font-size:14.5px; color:rgba(255,255,255,.72); line-height:1.5; }
+
+/* ---- programme ---- */
+.programme{ display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(30px,5vw,64px); align-items:start; }
+@media (max-width:860px){ .programme{ grid-template-columns:1fr; } }
+.programme h2{ font-size:clamp(29px,4vw,44px); color:var(--indigo); margin-bottom:16px; }
+.programme .lede{ color:#4A5A66; }
+.venue-list{ list-style:none; margin:22px 0 0; padding:0; }
+.venue-list li{ padding:15px 0; border-top:1px solid var(--line); font-size:15.5px; color:#4A5A66; }
+.venue-list li b{ color:var(--indigo); font-weight:600; display:block; font-size:16px; margin-bottom:2px; }
+
+/* ---- people ---- */
+.people{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:34px; margin-top:8px; }
+.person{ border-top:2px solid var(--jute); padding-top:20px; }
+.person h3{ font-size:20px; color:var(--indigo); margin-bottom:3px; }
+.person .role{ font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--jute); margin-bottom:12px; }
+.person p{ font-size:15px; color:#4A5A66; margin:0; }
+
+.registry{ margin-top:clamp(38px,5vw,56px); border:1px solid var(--line); background:var(--white); }
+.registry-row{ display:grid; grid-template-columns:200px 1fr; gap:20px; padding:15px 24px; border-bottom:1px solid var(--line); font-size:15px; }
+.registry-row:last-child{border-bottom:0}
+.registry-row dt{ color:var(--jute); font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding-top:3px; }
+.registry-row dd{ margin:0; color:#3D4C58; }
+@media (max-width:640px){ .registry-row{ grid-template-columns:1fr; gap:4px; } }
+
+/* ---- contact ---- */
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,60px); }
+@media (max-width:800px){ .contact-grid{ grid-template-columns:1fr; } }
+.contact-item{ margin-bottom:26px; }
+.contact-item dt{ font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--jute); margin-bottom:6px; }
+.contact-item dd{ margin:0; font-size:16.5px; color:rgba(255,255,255,.9); line-height:1.5; }
+.contact-item a{ color:var(--white); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); }
+.contact-item a:hover{ border-bottom-color:var(--jute); }
+
+.foot{ background:var(--ink); color:rgba(255,255,255,.5); border-top:1px solid rgba(255,255,255,.12); padding-block:28px; font-size:13.5px; }
+.foot-in{ display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+
+.reveal{ opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+:focus-visible{ outline:2px solid var(--jute); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brandmark" href="#top">
+      <b>BanglaCOM</b><span>Kunming · 昆明</span>
+    </a>
+    <div class="topbar-right">
+      <nav class="nav">
+        <a href="#what"       data-zh="业务范围">What we do</a>
+        <a href="#exporters"  data-zh="出口企业">Exporters</a>
+        <a href="#buyers"     data-zh="采购商">Buyers</a>
+        <a href="#programme"  data-zh="文化项目">Culture</a>
+        <a href="#about"      data-zh="关于我们">About</a>
+        <a href="#contact"    data-zh="联系我们">Contact</a>
+      </nav>
+      <div class="langtoggle" role="group" aria-label="Language / 语言">
+        <button type="button" id="btn-en" aria-pressed="true">EN</button>
+        <button type="button" id="btn-zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="warp"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" data-zh="孟加拉国 → 中国 · 立足云南昆明">Bangladesh &nbsp;→&nbsp; China &nbsp;·&nbsp; based in Kunming, Yunnan</p>
+
+      <div class="scripts">
+        <span class="bn">বাংলাদেশ</span>
+        <span class="sep">◇</span>
+        <span class="zh">孟加拉国</span>
+      </div>
+
+      <h1 data-zh="孟加拉商品，<em>在中国找得到。</em>">Bangladeshi goods,<br><em>found in China.</em></h1>
+
+      <p class="hero-lede" data-zh="BanglaCOM 是一家位于昆明的中孟合资企业。我们帮助孟加拉国的生产企业对接中国买家，也帮助中国采购商采购孟加拉的黄麻制品、纺织品、手工艺品与食品——两端都有我们的人在场。">
+        BanglaCOM is a Bangladeshi–Chinese joint venture in Kunming. We help producers in
+        Bangladesh reach buyers in China — and help Chinese buyers source Bangladeshi
+        jute, textiles, handicrafts and food with someone on both sides of the table.
+      </p>
+    </div>
+
+    <dl class="hero-facts">
+      <div class="fact">
+        <dt data-zh="注册信息">Registered</dt>
+        <dd data-zh="省级企业，注册于中国（云南）自由贸易试验区">Provincial-level enterprise, China (Yunnan) Pilot Free Trade Zone</dd>
+      </div>
+      <div class="fact">
+        <dt data-zh="股权结构">Ownership</dt>
+        <dd data-zh="中孟合资企业——由中方与孟方股东共同持股">Sino-Bangladeshi joint venture — Chinese and Bangladeshi shareholders</dd>
+      </div>
+      <div class="fact">
+        <dt data-zh="工作语言">Working languages</dt>
+        <dd>বাংলা &nbsp;·&nbsp; 中文 &nbsp;·&nbsp; English</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== WHAT WE DO ===================== -->
+<section class="section" id="what">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-zh="业务范围">What we do</p>
+      <h2 data-zh="五类业务，一条通往市场的路径。">Five kinds of work, one route to market.</h2>
+      <p data-zh="把一件孟加拉产品摆上中国货架，需要的不只是一个集装箱。需要仓储、需要通关、需要买家能亲眼看到的场地、需要消费者习惯下单的店铺，还需要中国买家对孟加拉有足够的了解，才愿意坐下来谈。这五件事我们都做。">
+        Getting a Bangladeshi product onto a Chinese shelf takes more than a shipping
+        container. It takes storage, customs, a place buyers can see it, a listing where
+        people shop, and enough familiarity with Bangladesh that a buyer takes the
+        meeting. We work on all five.
+      </p>
+    </div>
+
+    <div class="services reveal">
+      <!-- EDIT: service names and copy -->
+      <div class="svc">
+        <h3 data-zh="采购与贸易">Sourcing &amp; trade</h3>
+        <span class="zh-sub">采购与贸易</span>
+        <p data-zh="为孟加拉供应商与中国买家牵线，并负责其间的谈判、单证与后续跟进。">Matching Bangladeshi suppliers to Chinese buyers, and handling the negotiation, paperwork and follow-through in between.</p>
+      </div>
+      <div class="svc">
+        <h3 data-zh="仓储与通关">Warehousing &amp; customs</h3>
+        <span class="zh-sub">仓储与通关</span>
+        <p data-zh="仓储、库存管理、分拣与通关协调，包括保税安排，使税款在货物实际售出前得以递延。">Storage, inventory, sorting and customs coordination — including bonded arrangements, so duty is deferred until goods actually sell.</p>
+      </div>
+      <div class="svc">
+        <h3 data-zh="展示与洽谈">Showroom &amp; display</h3>
+        <span class="zh-sub">展示与洽谈</span>
+        <p data-zh="在昆明设有实体场地，买家可全年看样、上手并下单，而不必等到展会。">A physical place in Kunming where buyers can see, handle and order Bangladeshi products year-round rather than only at trade fairs.</p>
+      </div>
+      <div class="svc">
+        <h3 data-zh="电商运营">Online retail</h3>
+        <span class="zh-sub">电商运营</span>
+        <p data-zh="在中国消费者真正下单的平台上运营店铺——京东、抖音、拼多多，以及面向批发的1688。">Storefront operation on the platforms Chinese people actually buy on — JD.com, Douyin, Pinduoduo, and 1688.com for wholesale.</p>
+      </div>
+      <div class="svc">
+        <h3 data-zh="展会服务">Fairs &amp; exhibitions</h3>
+        <span class="zh-sub">展会服务</span>
+        <p data-zh="全国各地展会的展位预订、口译、现场支持与买家跟进；您无法到场时，由我们代为参展。">Booth booking, interpretation, on-site support and buyer follow-up at trade fairs across China — attending for you if you can't travel.</p>
+      </div>
+      <div class="svc">
+        <h3 data-zh="文化交流">Cultural exchange</h3>
+        <span class="zh-sub">文化交流</span>
+        <p data-zh="面向中国公众介绍孟加拉的讲座、语言课程与文化活动。非商业性质，也正是其他业务得以成立的前提。">Lectures, language classes and cultural events that introduce Bangladesh to Chinese audiences. Non-commercial, and the reason the rest works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY NOW ===================== -->
+<section class="section section-dark">
+  <div class="warp"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-zh="时机">Why now</p>
+      <h2 data-zh="关税降了，认知还没跟上。">The tariffs came down. The awareness hasn't caught up.</h2>
+      <p data-zh="孟加拉商品已可以优惠条件进入中国，云南省也向伙伴国开放了仓储、展览与物流支持。目前的差距不在成本，而在于多数中国买家从未接触过孟加拉产品。">
+        Bangladeshi goods now enter China on favourable terms, and Yunnan Province has
+        opened warehouse, exhibition and logistics support to partner countries. The
+        remaining gap isn't cost — it's that most Chinese buyers have never been offered
+        a Bangladeshi product.
+      </p>
+    </div>
+
+    <!-- EDIT: verify these figures before publishing -->
+    <dl class="stats reveal">
+      <div class="stat">
+        <dt data-zh="零关税">Zero</dt>
+        <dd data-zh="孟加拉输华全部应税产品享零关税待遇，已延长至2028年底">tariff on all taxable Bangladeshi export lines to China, extended through the end of 2028</dd>
+      </div>
+      <div class="stat">
+        <dt data-zh="17年">17 yrs</dt>
+        <dd data-zh="中国已连续十七年成为孟加拉第一大贸易伙伴">China has been Bangladesh's largest trading partner for seventeen consecutive years</dd>
+      </div>
+      <div class="stat">
+        <dt data-zh="1725亿元">¥172.5bn</dt>
+        <dd data-zh="2025年中孟双边贸易额">bilateral China–Bangladesh trade in 2025</dd>
+      </div>
+      <div class="stat">
+        <dt data-zh="云南">Yunnan</dt>
+        <dd data-zh="面向伙伴国提供免费保税仓储、展馆场地与铁路运费优惠">free bonded warehouse space, exhibition halls and freight-rail preference for partner countries</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== TWO AUDIENCES ===================== -->
+<section class="section" id="exporters">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-zh="合作方式">How to work with us</p>
+      <h2 data-zh="两个入口，一个仓库。">Two doors, one warehouse.</h2>
+      <p data-zh="无论您是从吉大港发货，还是在昆明采购，流程都刻意保持简短。">Whether you're shipping out of Chattogram or buying out of Kunming, the process is deliberately short.</p>
+    </div>
+
+    <div class="split reveal">
+      <div class="split-col">
+        <h3 data-zh="面向孟加拉出口企业">If you produce in Bangladesh</h3>
+        <span class="zh-sub">面向孟加拉出口企业</span>
+        <ol class="steps">
+          <li data-zh="将您的产品目录和实际出口能力发给我们。欢迎中小企业与乡村手工艺生产者。">Send us your catalogue and your realistic export capacity. Small producers are welcome — we work with SMEs and rural handicraft makers.</li>
+          <li data-zh="我们对照中国买家的实际需求进行筛选，并如实告知哪些品类在此地有市场。">We check the products against what Chinese buyers are actually asking for, and tell you honestly which lines have a market here.</li>
+          <li data-zh="发货前先以书面形式确定条款——价格、周期，以及未售出货物的处理方式。">We agree terms in writing — pricing, timelines, what happens to unsold stock — before anything ships.</li>
+          <li data-zh="您负责质检与运抵中国；此端的仓储、通关、展示、上架与销售由我们负责。">You handle quality control and shipping to China; we handle storage, customs, display, listing and sales on this end.</li>
+          <li data-zh="您将获得定期报告，并随货物售出分期结算，而不是一年之后一次性结清。">You get regular reporting and periodic payment as goods sell — not one lump settlement a year later.</li>
+        </ol>
+      </div>
+
+      <div class="split-col" id="buyers">
+        <h3 data-zh="面向中国采购商">If you buy in China</h3>
+        <span class="zh-sub">面向中国采购商</span>
+        <ol class="steps">
+          <li data-zh="告诉我们品类与数量。黄麻制品、成衣、手工艺品、皮革、水产及农产品、特色食品。">Tell us the category and volume. Jute, ready-made garments, handicrafts, leather, aquatic and agricultural products, specialty foods.</li>
+          <li data-zh="在昆明看样，或由我们寄样。您面对的是一家依中国法律注册的公司，而非陌生的境外主体。">See samples in Kunming, or ask us to send them. You are dealing with a China-registered company under Chinese law, not an overseas unknown.</li>
+          <li data-zh="我们会核实孟方供应商，确认其确能满足您的数量要求，您再作决定。">We verify the supplier in Bangladesh and confirm they can actually meet your volume before you commit.</li>
+          <li data-zh="货物完成清关后自我们昆明仓库发往国内各地；需要时可采用保税仓储以缓解资金占用。">Goods clear customs and ship domestically from our Kunming warehouse — with bonded storage where it helps your cash flow.</li>
+          <li data-zh="批发询价欢迎通过1688；零售数量请通过我们的平台店铺。">Wholesale enquiries welcome via 1688.com; retail quantities through our platform storefronts.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CULTURE PROGRAMME ===================== -->
+<section class="section section-alt" id="programme">
+  <div class="wrap programme">
+    <div class="reveal">
+      <p class="eyebrow" data-zh="公众项目">Public programme · 公众项目</p>
+      <h2 data-zh="走近邻邦：孟加拉">Exploring My Neighbour:<br>Bangladesh</h2>
+      <p class="lede" data-zh="一项免费开放的公众项目，走到人们本就聚集的地方——高校礼堂、企业办公场所、政府部门、公共广场。无需门票，无需消费，也没有推销。">
+        A free, open programme that takes Bangladesh to where people already are —
+        university halls, company offices, government departments, public squares.
+        No ticket, no purchase, no sales pitch.
+      </p>
+      <p class="lede" data-zh="我们做这件事，是因为一个从未听说过的国家很难推销，也因为交流本就是双向的：我们向中国学习者教授孟加拉语，也向在华孟加拉企业教授中文。">
+        We run it because a country you've never heard of is a hard sell, and because
+        the exchange runs both ways: we teach Bengali to Chinese learners and Chinese
+        to Bangladeshi businesses working here.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <ul class="venue-list">
+        <!-- EDIT: add real dates and events here once you have them -->
+        <li data-zh="<b>高校讲座</b>孟加拉的历史、文化、经济，及其与中国长期的贸易关系——面向学生与教师。"><b>University lectures</b>Bangladesh's history, culture, economy, and its long trade relationship with China — for students and faculty.</li>
+        <li data-zh="<b>投资说明会</b>面向政府部门、国有企业与民营企业的分行业专题说明。"><b>Investment briefings</b>Sector-by-sector sessions for government offices, state-owned enterprises and private companies.</li>
+        <li data-zh="<b>文化与产品日</b>在公共与商业空间举办的演出、手工艺演示与试吃活动。"><b>Cultural &amp; product days</b>Performance, craft demonstration and tasting in public and commercial spaces.</li>
+        <li data-zh="<b>语言课程</b>面向中国学习者的孟加拉语入门；面向在华孟加拉企业的中文入门。"><b>Language classes</b>Beginner Bengali for Chinese learners; beginner Chinese for Bangladeshi enterprises operating here.</li>
+        <li data-zh="<b>年度活动</b>孟加拉新年（4月14日）、孟加拉文化周，以及与孟加拉国驻昆明总领事馆的联合纪念活动。"><b>Annual calendar</b>Pahela Baishakh (14 April), Bangladesh Cultural Week, and joint commemorations with the Bangladesh Consulate General in Kunming.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-zh="关于我们">Who we are</p>
+      <h2 data-zh="合资，是刻意的选择。">A joint venture, on purpose.</h2>
+      <p data-zh="单靠一家中国公司，不了解孟加拉；单靠一家孟加拉公司，也无法在中国的海关与平台体系内运作。我们把两方放进同一家公司，正是为了避免任何一方被隔着距离对待。">
+        A Chinese company alone doesn't know Bangladesh. A Bangladeshi company alone
+        can't operate inside China's customs and platform systems. We were set up as
+        one company with both, so neither side is being handled at arm's length.
+      </p>
+    </div>
+
+    <div class="people reveal">
+      <!-- EDIT: names, roles and bios -->
+      <div class="person">
+        <h3 data-zh="张文芳">Zhang Wenfang</h3>
+        <p class="role" data-zh="法定代表人">Legal Representative</p>
+        <p data-zh="依中国公司法担任公司法定代表人，负责公司对外承诺与合规事项。">Legal representative of the company under Chinese company law, responsible for the company's formal undertakings and compliance.</p>
+      </div>
+      <div class="person">
+        <h3 data-zh="高远">Gao Yuan</h3>
+        <p class="role" data-zh="中方股东">Chinese shareholder side</p>
+        <p data-zh="在南亚及东南亚多国拥有投资经验，熟悉中国机电与新能源领域企业。">Investment experience across South and Southeast Asia, with working knowledge of Chinese enterprises in the electromechanical and renewable-energy sectors.</p>
+      </div>
+      <div class="person">
+        <h3 data-zh="Sagred Al Miskat Sharif（林雨贤）">Sagred Al Miskat Sharif</h3>
+        <p class="role" data-zh="孟方合伙人">Bangladeshi partner</p>
+        <p data-zh="在昆明任孟加拉语外籍教师；持达卡大学与云南大学双学士学位。《孟加拉语口语教程》作者，累计承担百余场孟中口译。曾协助建立两国高校间的交流项目。">Bengali-language faculty in Kunming; dual bachelor's degrees from the University of Dhaka and Yunnan University. Author of <em>A Spoken Bengali Course</em>, and interpreter at 100+ Bengali–Chinese engagements. Has helped establish university exchange programmes between the two countries.</p>
+      </div>
+    </div>
+
+    <dl class="registry reveal">
+      <div class="registry-row">
+        <dt data-zh="公司名称">Legal name</dt>
+        <dd data-zh="BanglaCOM —— Bangla Commercial Operations Management (Yunnan) Co., Ltd.">BanglaCOM — Bangla Commercial Operations Management (Yunnan) Co., Ltd.</dd>
+      </div>
+      <div class="registry-row">
+        <dt data-zh="注册信息">Registration</dt>
+        <dd data-zh="省级企业，中国（云南）自由贸易试验区昆明片区">Provincial-level enterprise, China (Yunnan) Pilot Free Trade Zone, Kunming Area</dd>
+      </div>
+      <div class="registry-row">
+        <dt data-zh="注册资本">Registered capital</dt>
+        <dd data-zh="注册资本人民币100万元；控股股东云南今泰和企业管理有限公司注册资本为人民币1000万元">RMB 1,000,000 — majority shareholder Yunnan Jintaihe Enterprise Management Co., Ltd. separately holds RMB 10,000,000</dd>
+      </div>
+      <div class="registry-row">
+        <dt data-zh="注册地址">Registered office</dt>
+        <dd data-zh="中国（云南）自由贸易试验区昆明片区经开区春满大道80号云南海归创业园1栋4层426室">Room 426, 4th Floor, Building 1, Yunnan Haigui Entrepreneurship Park, No. 80 Chunman Avenue, Jingkai District, Kunming Area, China (Yunnan) Pilot Free Trade Zone</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section section-dark" id="contact">
+  <div class="warp"></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" data-zh="联系我们">Get in touch</p>
+      <h2 data-zh="告诉我们您生产什么，或者您在找什么。">Tell us what you make, or what you're looking for.</h2>
+      <p data-zh="无论您以孟加拉语、中文还是英文来信，我们都会以同一种语言回复。">We reply in Bengali, Chinese or English — whichever you write in.</p>
+    </div>
+
+    <div class="contact-grid reveal">
+      <dl>
+        <!-- EDIT: your contact details -->
+        <div class="contact-item">
+          <dt data-zh="电子邮箱">Email</dt>
+          <dd><a href="mailto:miskatsharif@gmail.com">miskatsharif@gmail.com</a></dd>
+        </div>
+        <div class="contact-item">
+          <dt data-zh="电话 / 微信">Telephone / WeChat</dt>
+          <dd><a href="tel:+8618725142164">+86 187 2514 2164</a></dd>
+        </div>
+      </dl>
+      <dl>
+        <div class="contact-item">
+          <dt data-zh="办公地址">Office</dt>
+          <dd data-zh="中国（云南）自由贸易试验区昆明片区<br>经开区春满大道80号<br>云南海归创业园1栋4层426室">Room 426, 4th Floor, Building 1<br>
+              Yunnan Haigui Entrepreneurship Park<br>
+              No. 80 Chunman Avenue, Jingkai District<br>
+              Kunming Area, China (Yunnan) Pilot Free Trade Zone</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span data-zh="© <span id=yr>2026</span> BanglaCOM（云南）——Bangla Commercial Operations Management (Yunnan) Co., Ltd.">© <span id="yr">2026</span> BanglaCOM — Bangla Commercial Operations Management (Yunnan) Co., Ltd.</span>
+    <span>Kunming · 昆明 &nbsp;|&nbsp; banglacom.org</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- language toggle ----------
+     Each translatable element carries data-zh with its Chinese text.
+     On first run we stash the English in data-en, then swap between them. */
+  var nodes = document.querySelectorAll('[data-zh]');
+  nodes.forEach(function(el){ el.setAttribute('data-en', el.innerHTML); });
+
+  var btnEn = document.getElementById('btn-en');
+  var btnZh = document.getElementById('btn-zh');
+
+  function setLang(lang){
+    var zh = (lang === 'zh');
+    nodes.forEach(function(el){
+      el.innerHTML = el.getAttribute(zh ? 'data-zh' : 'data-en');
+    });
+    document.body.classList.toggle('zh-mode', zh);
+    document.documentElement.lang = zh ? 'zh-CN' : 'en';
+    btnEn.setAttribute('aria-pressed', String(!zh));
+    btnZh.setAttribute('aria-pressed', String(zh));
+    stampYear();
+  }
+
+  function stampYear(){
+    var y = document.getElementById('yr');
+    if (y) y.textContent = new Date().getFullYear();
+  }
+
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+  btnZh.addEventListener('click', function(){ setLang('zh'); });
+
+  /* Visitors browsing in Chinese land on the Chinese version. */
+  if ((navigator.language || '').toLowerCase().indexOf('zh') === 0) {
+    setLang('zh');
+  } else {
+    stampYear();
+  }
+
+  /* ---------- gentle reveal on scroll ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
